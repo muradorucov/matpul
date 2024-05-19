@@ -6,7 +6,9 @@ import { Outlet } from 'react-router'
 function UserLayout() {
     return (
         <>
-            <Navbar />
+            <header>
+                <Navbar />
+            </header>
             <Outlet />
             <Footer />
         </>

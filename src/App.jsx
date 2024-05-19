@@ -8,6 +8,8 @@ import Contact from './pages/user/contact'
 import Dashboard from './pages/admin/dashboard'
 import Products from './pages/admin/products'
 import Users from './pages/admin/users'
+import Search from './pages/user/search'
+import Login from './pages/user/login'
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
         <Route path='/' element={<UserLayout />}>
           <Route element={<Home />} index />
           <Route element={<Detail />} path=':id' />
+          <Route element={<Search />} path='search' />
           <Route element={<Contact />} path='contact' />
+          <Route element={<Login />} path='login' />
         </Route>
         <Route path='/admin' element={<AdminLayout />}>
           <Route element={<Dashboard />} index />
