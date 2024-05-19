@@ -4,5 +4,8 @@ export const productsApi = {
     getAllProduct: function () {
         axios.get(productsUrl)
             .then(res => console.log(res.data))
+    },
+    addProduct: function (param) {
+        axios.post(productsUrl, param)
     }
 }
