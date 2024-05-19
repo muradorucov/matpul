@@ -10,8 +10,10 @@ import Products from './pages/admin/products'
 import Users from './pages/admin/users'
 import Search from './pages/user/search'
 import Login from './pages/user/login'
+import { productsApi } from './services/base'
 
 function App() {
+  productsApi.getAllProduct()
   return (
     <>
       <Routes>
