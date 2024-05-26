@@ -1,8 +1,13 @@
 import React from 'react'
+import Slider from '../../../components/user/slider'
+import Products from '../../../components/user/products'
 
 function Home() {
     return (
-        <div>Home</div>
+        <main>
+            <Slider />
+            <Products />
+        </main>
     )
 }
 

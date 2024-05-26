@@ -1,5 +1,5 @@
 .container {
-    width: 75%;
+    width: 85%;
     max-width: 1140px;
     margin-inline: auto;
 }
@@ -12,6 +12,10 @@
 
 .flex-direction {
     flex-direction: column;
+}
+
+.text-center {
+    text-align: center;
 }
 
 

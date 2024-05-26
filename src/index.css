@@ -45,3 +45,97 @@ header {
         }
     }
 }
+
+main {
+
+    #products {
+        background-color: beige;
+        padding-block: 4rem;
+
+        .section-heading {
+            padding-block: 3rem;
+            color: orange;
+
+            h2 {
+                color: rgb(38, 35, 35);
+                font-weight: 600;
+                font-size: 40px;
+            }
+
+            .subheading {
+                font-size: 18px;
+            }
+        }
+
+        .product {
+            background-color: #fff;
+            padding: 30px;
+            padding-top: 50px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(50, 50, 50, .2);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+
+            * {
+                transition: all .2s;
+
+            }
+
+            .icons {
+                font-size: 30px;
+                position: absolute;
+                display: flex;
+                justify-content: space-between;
+                top: -35px;
+                left: 0;
+                right: 0;
+                padding-inline: 50px;
+                color: rgba(50, 50, 50, .9);
+                cursor: pointer;
+
+                svg:hover {
+
+                    color: rgb(224, 56, 56);
+                }
+
+            }
+
+            &:hover {
+                .icons {
+                    top: 10px;
+                }
+            }
+
+            h3 {
+                font-size: 18px;
+                font-weight: 400;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                display: -webkit-box;
+                overflow: hidden;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .discount-price {
+                color: #aaa;
+                text-decoration: line-through;
+            }
+
+            .price {
+                color: rgb(227, 32, 32);
+                font-size: 17px;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+footer {
+    padding-block: 5rem;
+    background-color: rgba(50, 50, 50, .99);
+    color: #fff;
+}
