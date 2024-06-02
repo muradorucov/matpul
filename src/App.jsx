@@ -11,8 +11,11 @@ import Users from './pages/admin/users'
 import Search from './pages/user/search'
 import Login from './pages/user/login'
 import { productsApi } from './services/base'
+import Cart from './pages/user/cart'
+import Favorite from './pages/user/favorite'
 
 function App() {
+  
   productsApi.getAllProduct()
   return (
     <>
@@ -22,6 +25,8 @@ function App() {
           <Route element={<Detail />} path=':id' />
           <Route element={<Search />} path='search' />
           <Route element={<Contact />} path='contact' />
+          <Route element={<Cart />} path='cart' />
+          <Route element={<Favorite />} path='favorite' />
           <Route element={<Login />} path='login' />
         </Route>
         <Route path='/admin' element={<AdminLayout />}>

@@ -3,13 +3,20 @@ import { BsCartPlusFill } from "react-icons/bs";
 import { MdFavoriteBorder } from "react-icons/md";
 
 import { FaCodeCompare } from "react-icons/fa6";
+import { useDispatch } from 'react-redux';
+import { addToCartAction } from '../../../redux/actions/cartList.actions';
 
-function ProductCard({ title, images, price, color, ram, rom, cpu, screen }) {
+function ProductCard(props) {
+    let { title, images, price, color, ram, rom, cpu, screen } = props.product
+    const dispatch = useDispatch()
+    function addToCart() {
+        dispatch(addToCartAction(props.product))
+    }
     return (
         <div className='product'>
             <div className="icons">
                 <MdFavoriteBorder />
-                <BsCartPlusFill />
+                <BsCartPlusFill onClick={addToCart} />
                 <FaCodeCompare />
             </div>
             <img src={images[0]} alt={title} />
