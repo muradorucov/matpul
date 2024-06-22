@@ -39,11 +39,13 @@ function App() {
           }
           <Route element={<NotFound />} path='*' />
         </Route>
-        <Route path='/admin' element={<AdminLayout />}>
-          <Route element={<Dashboard />} index />
-          <Route element={<Products />} path='products' />
-          <Route element={<Users />} path='users' />
-        </Route>
+        {
+          userData.email === "admin@mat.pul" ? <Route path='/admin' element={<AdminLayout />}>
+            <Route element={<Dashboard />} index />
+            <Route element={<Products />} path='products' />
+            <Route element={<Users />} path='users' />
+          </Route> : null
+        }
       </Routes>
     </>
   )
