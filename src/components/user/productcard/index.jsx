@@ -12,7 +12,7 @@ import { Link, useNavigate } from 'react-router-dom';
 function ProductCard(props) {
     let { id, title, images, price, color, ram, rom, cpu, screen } = props.product
     const dispatch = useDispatch()
-    const { favList, isLogin } = useSelector(state => state)
+    const { favList, userData } = useSelector(state => state)
     function addToCart() {
         dispatch(addToCartAction(props.product))
     }
@@ -24,7 +24,7 @@ function ProductCard(props) {
                 {
                     favList.find(item => item.id === id) ?
                         <MdOutlineFavorite onClick={() => dispatch(removeFromFavAction(id))} />
-                        : <MdFavoriteBorder onClick={() => isLogin ? dispatch(addToFavAction(props.product)) : changeNav("/login")} />
+                        : <MdFavoriteBorder onClick={() => Object.keys(userData).length ? dispatch(addToFavAction(props.product)) : changeNav("/login")} />
 
                 }
                 <BsCart3 onClick={addToCart} />

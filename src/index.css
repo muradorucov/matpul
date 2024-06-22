@@ -58,6 +58,12 @@ header {
     }
 
     .basket {
+        display: flex;
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
         svg {
             font-size: 30px;
             margin-left: 15px;
@@ -294,8 +300,10 @@ footer {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    box-shadow:  0 0 10px -1px rgb(72, 66, 66);
+    box-shadow:  0 0 4px -1px rgb(72, 66, 66);
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    margin-left: 10px;
 }

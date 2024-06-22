@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { usersApi } from '../../../services/base'
 import { useDispatch } from 'react-redux'
-import { loginAction } from '../../../redux/actions/login.actions'
+import { getUserDataAction } from '../../../redux/actions/userdata.actions'
 
 function Login() {
     const [loginData, setLoginData] = useState({
@@ -13,11 +13,17 @@ function Login() {
     const dis = useDispatch()
     const loginUser = (e) => {
         e.preventDefault()
-        usersApi.loginUser(loginData)
+        usersApi.loginUser()
             .then(res => {
                 if (res.status === 200) {
-                    dis(loginAction())
-                    alert("Login olundu")
+                    let foundUser = res.data.find(user => user.email === loginData.email
+                        && user.password === loginData.password)
+                    if (foundUser) {
+                        dis(getUserDataAction(foundUser))
+                        alert("Login olundu")
+                    } else {
+                        alert("EMail ve ya Password yanlishdir")
+                    }
                 }
             })
     }

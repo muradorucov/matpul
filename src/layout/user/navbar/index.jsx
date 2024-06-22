@@ -9,7 +9,7 @@ import Search from '../../../components/user/search'
 
 function Navbar() {
     const [result, setResult] = useState(0)
-    const { cartList, isLogin } = useSelector(state => state)
+    const { cartList, userData } = useSelector(state => state)
     useEffect(() => {
         setResult(cartList.reduce((acc, item, index, arr) => {
             return acc += item.count
@@ -40,9 +40,11 @@ function Navbar() {
                             <MdOutlineFavoriteBorder />
                         </Link>
                     </div>
-                    <Link to={`${isLogin ? "/profile" : "/login"}`}>
+                    <Link to={`${Object.keys(userData).length ? "/profile" : "/login"}`}>
                         <div className='profile-card'>
-                            PRO
+                            <img src={
+                                userData.avatar ? userData.avatar : "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg"
+                            } alt="" />
                         </div>
                     </Link>
                 </div>

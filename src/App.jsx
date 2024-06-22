@@ -16,9 +16,10 @@ import Favorite from './pages/user/favorite'
 import Register from './pages/user/register'
 import Profile from './pages/user/profile'
 import { useSelector } from 'react-redux'
+import NotFound from './pages/user/NotFound'
 
 function App() {
-  const { isLogin } = useSelector(state => state)
+  const { userData } = useSelector(state => state)
 
   productsApi.getAllProduct()
   return (
@@ -34,8 +35,9 @@ function App() {
           <Route element={<Login />} path='login' />
           <Route element={<Register />} path='register' />
           {
-            isLogin ? <Route element={<Profile />} path='profile' /> : null
+            Object.keys(userData).length ? <Route element={<Profile />} path='profile' /> : null
           }
+          <Route element={<NotFound />} path='*' />
         </Route>
         <Route path='/admin' element={<AdminLayout />}>
           <Route element={<Dashboard />} index />
