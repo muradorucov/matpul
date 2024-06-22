@@ -5,7 +5,9 @@ import Products from '../../../components/user/products'
 function Home() {
     return (
         <main>
-            <Slider />
+            <div data-aos="zoom-in"  data-aos-duration="1500">
+                <Slider />
+            </div>
             <Products />
         </main>
     )

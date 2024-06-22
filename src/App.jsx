@@ -13,21 +13,29 @@ import Login from './pages/user/login'
 import { productsApi } from './services/base'
 import Cart from './pages/user/cart'
 import Favorite from './pages/user/favorite'
+import Register from './pages/user/register'
+import Profile from './pages/user/profile'
+import { useSelector } from 'react-redux'
 
 function App() {
-  
+  const { isLogin } = useSelector(state => state)
+
   productsApi.getAllProduct()
   return (
     <>
       <Routes>
         <Route path='/' element={<UserLayout />}>
           <Route element={<Home />} index />
-          <Route element={<Detail />} path=':id' />
-          <Route element={<Search />} path='search' />
+          <Route element={<Detail />} path='product/:id' />
+          <Route element={<Search />} path='search/:title' />
           <Route element={<Contact />} path='contact' />
           <Route element={<Cart />} path='cart' />
           <Route element={<Favorite />} path='favorite' />
           <Route element={<Login />} path='login' />
+          <Route element={<Register />} path='register' />
+          {
+            isLogin ? <Route element={<Profile />} path='profile' /> : null
+          }
         </Route>
         <Route path='/admin' element={<AdminLayout />}>
           <Route element={<Dashboard />} index />

@@ -4,3 +4,16 @@ export const addToCartAction = (payload) => {
         payload
     }
 }
+export const countIncreamentAction = (payload) => {
+    return {
+        type: "COUNT_INCREAMENT",
+        payload
+    }
+}
+
+export const countDecreamentAction = (payload) => {
+    return {
+        type: "COUNT_DECREAMENT",
+        payload
+    }
+}
